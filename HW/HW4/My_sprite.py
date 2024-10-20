@@ -20,4 +20,4 @@ class My_sprite(pygame.sprite.Sprite):
         return(self.rendering.get_height())
 
     def __eq__(self,other): 
-        return self.get_width()==other.get_width() and self.get_height()==other.get_height() and self.location==other.location
+        return ((self.get_width()==other.get_width()) and (self.get_height()==other.get_height()) and (self.location == other.location))

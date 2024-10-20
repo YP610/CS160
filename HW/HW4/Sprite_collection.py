@@ -1,8 +1,7 @@
 import os 
-from My_sprite import My_sprite
 os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = "hide"
-
-class Sprite_collection:
+from My_sprite import My_sprite
+class Sprite_collection(My_sprite):
     def __init__(self):
         self.sprite_list=[]
         
@@ -11,10 +10,19 @@ class Sprite_collection:
         
     def search(self,other):
         x=[]
+        count=0
         for i in self.sprite_list:
             if i.__eq__(other):
                 x.append(i)
+            
+        #Redundant check if the objects in x are not copies of the objects in self.sprite_list 
+        for i in x:
+            for j in self.sprite_list:
+                if i is j:
+                    count+=1
+                    
+        if count== len(x):
+            return x
                 
-        return x
         
 
